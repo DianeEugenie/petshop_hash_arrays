@@ -205,17 +205,25 @@ class TestPetShop < Minitest::Test
     assert_equal(1900, total_cash(@pet_shop))
   end
 
-  # def test_sell_pet_to_customer__pet_not_found
-  #   customer = @customers[0]
-  #   pet = find_pet_by_name(@pet_shop,"Dave")
-  #
-  #   sell_pet_to_customer(@pet_shop, pet, customer)
-  #
-  #   assert_equal(0, customer_pet_count(customer))
-  #   assert_equal(0, pets_sold(@pet_shop))
-  #   assert_equal(1000, customer_cash(customer))
-  #   assert_equal(1000, total_cash(@pet_shop))
-  # end
+#ERROR MESSAGE!
+#   1) Error:
+# TestPetShop#test_sell_pet_to_customer__pet_not_found:
+# NoMethodError: undefined method `[]' for nil:NilClass
+#   /Users/user/codeclan_work/week_01/day_05/Pet_Shop_TDD_hash_arrays/pet_shop_start_point/pet_shop.rb:161:in `sell_pet_to_customer'
+#   specs/pet_shop_spec.rb:219:in `test_sell_pet_to_customer__pet_not_found'
+
+  def test_sell_pet_to_customer__pet_not_found
+    customer = @customers[0]
+    pet = find_pet_by_name(@pet_shop,"Dave")
+
+    sell_pet_to_customer(@pet_shop, pet, customer)
+  # when I comment out line 212 the asserts below match as nothing has happened to the original amounts
+
+    assert_equal(0, customer_pet_count(customer))
+    assert_equal(0, pets_sold(@pet_shop))
+    assert_equal(1000, customer_cash(customer))
+    assert_equal(1000, total_cash(@pet_shop))
+  end
 
   def test_sell_pet_to_customer__insufficient_funds
     customer = @customers[1]

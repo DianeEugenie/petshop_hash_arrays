@@ -114,6 +114,9 @@ def customer_can_afford_pet(customers, new_pet)
 end
 
 #16
+
+#ATTEMPT TO PASS FIRST TEST OF SELL_PET_TO_CUSTOMER
+
 # def sell_pet_to_customer(pet_shop, pet, customer)
 #
 #     find_pet_by_name(pet_shop, pet)
@@ -128,17 +131,68 @@ end
 #
 # end
 
+#SUCCESSFUL PASS OF FIRST AND THIRD TEST FOR SELL_PET_TO_CUSTOMER
+# def sell_pet_to_customer(pet_shop, pet, customer)
+#
+# sold_pet = find_pet_by_name(pet_shop, pet[:name])
+# #binding.pry
+#
+#
+#     if (sold_pet == pet) && customer_can_afford_pet(customer, pet)
+#
+#       find_pet_by_name(pet_shop, pet[:name])
+#
+#       remove_customer_cash(customer,pet[:price])
+#
+#       add_or_remove_cash(pet_shop, pet[:price])
+#
+#       add_pet_to_customer(customer, pet)
+#
+#       increase_pets_sold(pet_shop, 1)
+#
+#     end
+#
+# end
+
+#Try to get all three successful!!!!!
+
+# def sell_pet_to_customer(pet_shop, pet, customer)
+
+# sold_pet = find_pet_by_name(pet_shop, pet[:name])
+
+#
+#     if (sold_pet == nil)
+#
+#     elsif (sold_pet != nil) && customer_can_afford_pet(customer, pet)
+#
+#       remove_customer_cash(customer,pet[:price])
+#
+#       add_or_remove_cash(pet_shop, pet[:price])
+#
+#       add_pet_to_customer(customer, pet)
+#
+#       increase_pets_sold(pet_shop, 1)
+#       #customer_pet_count(customer) instead of 1
+#
+#     else
+#
+#     end
+#
+# end
+
+
+
+
+
 
 def sell_pet_to_customer(pet_shop, pet, customer)
 
-sold_pet = find_pet_by_name(pet_shop, pet[:name])
-#binding.pry
+  if pet == nil #so if pet is not found then end
 
+  else #if pet is not nil so if pet is available
+    find_pet_by_name(pet_shop,pet[:name]) #find the pet
 
-    if (sold_pet == pet) && customer_can_afford_pet(customer, pet)
-
-      find_pet_by_name(pet_shop, pet)
-
+    if customer_can_afford_pet(customer, pet) #check if customer can afford the pet if yes then continue with the methods below
       remove_customer_cash(customer,pet[:price])
 
       add_or_remove_cash(pet_shop, pet[:price])
@@ -146,29 +200,30 @@ sold_pet = find_pet_by_name(pet_shop, pet[:name])
       add_pet_to_customer(customer, pet)
 
       increase_pets_sold(pet_shop, 1)
-
     end
-
+  end
 end
 
-
-#customer_can_afford_pet(customer, pet)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#     if (find_pet_by_name(pet_shop, pet[:name]) == pet) && customer_can_afford_pet(customer, pet)
+#
+#       remove_customer_cash(customer,pet[:price])
+#
+#       add_or_remove_cash(pet_shop, pet[:price])
+#
+#       add_pet_to_customer(customer, pet)
+#
+#       increase_pets_sold(pet_shop, 1)
+#       #customer_pet_count(customer) instead of 1
+#     end
+#
+#
+# end
+#
+#
+#
+#
+#
+#
 
 
 
