@@ -1,3 +1,5 @@
+require('pry')
+
 #1
 def pet_shop_name(pet_shop)
   return pet_shop[:name]
@@ -112,19 +114,50 @@ def customer_can_afford_pet(customers, new_pet)
 end
 
 #16
+# def sell_pet_to_customer(pet_shop, pet, customer)
+#
+#     find_pet_by_name(pet_shop, pet)
+#
+#     remove_customer_cash(customer,pet[:price])
+#
+#     add_or_remove_cash(pet_shop, pet[:price])
+#
+#     add_pet_to_customer(customer, pet)
+#
+#     increase_pets_sold(pet_shop, customer_pet_count(customer))
+#
+# end
+
+
 def sell_pet_to_customer(pet_shop, pet, customer)
 
-    find_pet_by_name(pet_shop, pet)
+sold_pet = find_pet_by_name(pet_shop, pet[:name])
+#binding.pry
 
-    remove_customer_cash(customer,pet[:price])
 
-    add_or_remove_cash(pet_shop, pet[:price])
+    if (sold_pet == pet) && customer_can_afford_pet(customer, pet)
 
-    add_pet_to_customer(customer, pet)
+      find_pet_by_name(pet_shop, pet)
 
-    increase_pets_sold(pet_shop, customer_pet_count(customer))
+      remove_customer_cash(customer,pet[:price])
+
+      add_or_remove_cash(pet_shop, pet[:price])
+
+      add_pet_to_customer(customer, pet)
+
+      increase_pets_sold(pet_shop, 1)
+
+    end
 
 end
+
+
+#customer_can_afford_pet(customer, pet)
+
+
+
+
+
 
 
 
