@@ -44,4 +44,12 @@ found_pets = []
 
 end
 
-#
+#8
+def find_pet_by_name(pet_shop, name)
+
+  for pet in pet_shop[:pets]
+    if (pet[:name] == name)
+      return pet
+    end
+  end
+end
