@@ -217,7 +217,6 @@ class TestPetShop < Minitest::Test
     pet = find_pet_by_name(@pet_shop,"Dave")
 
     sell_pet_to_customer(@pet_shop, pet, customer)
-  # when I comment out line 212 the asserts below match as nothing has happened to the original amounts
 
     assert_equal(0, customer_pet_count(customer))
     assert_equal(0, pets_sold(@pet_shop))
