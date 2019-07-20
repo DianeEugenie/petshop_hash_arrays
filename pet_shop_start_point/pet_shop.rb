@@ -120,22 +120,25 @@ def sell_pet_to_customer(pet_shop, pet, customer)
   if pet != nil #so if pet is found
     find_pet_by_name(pet_shop,pet[:name]) #find the pet
 
-    if customer_can_afford_pet(customer, pet) #check if customer can afford the pet if yes then continue with the methods below
+    if customer_can_afford_pet(customer, pet) #can customer afford pet then do the following:
+      #check the stock before the sale
+      stock_before_sale = stock_count(pet_shop)
+      #remove cash from the customer
       remove_customer_cash(customer,pet[:price])
-
+      #add cash to the cash of the pet shop
       add_or_remove_cash(pet_shop, pet[:price])
-
+      #remove the pet from the pet shop
+      remove_pet_by_name(pet_shop, pet[:name])
+      #add the pet to the customer
       add_pet_to_customer(customer, pet)
+      #check the stock after the sale
+      stock_after_sale = stock_count(pet_shop)
+      #increase the pets sold with stock before sale divided by stock after the sale
+      increase_pets_sold(pet_shop, (stock_before_sale - stock_after_sale))
 
-      increase_pets_sold(pet_shop, 1)
     end
   end
 end
-
-
-
-
-
 
 
 
